@@ -12,7 +12,16 @@ export default defineConfig({
       skipWaiting: true, // ✅ Activate SW immediately
       runtimeCaching: [
         {
-          urlPattern: /^\/(assets\/.*\.(js|css|png|jpg|svg|woff2?)|vite\.svg)$/,
+          urlPattern: /^\/vite\.svg$/, // ✅ Explicitly match `/vite.svg`
+          handler: "CacheFirst",
+          options: {
+            cacheName: "svg-cache",
+            expiration: { maxAgeSeconds: 60 * 60 * 24 * 365 }, // ✅ Cache for 1 year
+            cacheableResponse: { statuses: [0, 200] },
+          },
+        },
+        {
+          urlPattern: /^\/assets\/.*\.(js|css|png|jpg|svg|woff2?)$/,
           handler: "CacheFirst",
           options: {
             cacheName: "static-assets",
