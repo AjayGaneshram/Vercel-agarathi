@@ -51,7 +51,7 @@ export default defineConfig({
       background_color: "#ffffff",
     },
     // ✅ Detects a new update and triggers an event
-    devOptions: { enabled: true },
+    devOptions: { enabled: true },includeAssets: ["vite.svg"] 
   }),
   ],
   base: "/",
