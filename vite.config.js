@@ -12,7 +12,7 @@ export default defineConfig({
       skipWaiting: true, // ✅ Activate SW immediately
       runtimeCaching: [
         {
-          urlPattern: /^\/assets\/.*\.(js|css|png|jpg|svg|woff2?)$/,
+          urlPattern: /^\/(assets\/.*\.(js|css|png|jpg|svg|woff2?)|vite\.svg)$/,
           handler: "CacheFirst",
           options: {
             cacheName: "static-assets",

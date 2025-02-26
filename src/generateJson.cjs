@@ -42,7 +42,7 @@ function generateOutput() {
         };
     });
 
-    const jsContent = `const jsonData = ${JSON.stringify(outputData, null, 2)};
+    const jsContent = `const jsonData = ${JSON.stringify(outputData)};
 export default jsonData;`;
 
     fs.writeFileSync(outputFile, jsContent, 'utf-8');
